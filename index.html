@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl"> <head>
+<html lang="ar" dir="rtl"> 
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Shifting Service Riyadh - Fakk wa Tarkeeb</title>
@@ -25,28 +26,32 @@
         .whatsapp-button {
             position: fixed;
             bottom: 20px;
-            z-index: 1000;
-            background-color: #25D366;
+            z-index: 1000; /* Ensure it's above other elements */
+            background-color: #25D366; /* WhatsApp green */
             color: white;
             padding: 10px 15px;
-            border-radius: 50px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 50px; /* Fully rounded */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
             display: flex;
             align-items: center;
-            gap: 8px;
-            transition: transform 0.3s ease, right 0.3s ease, left 0.3s ease;
+            gap: 8px; /* Space between icon and text */
+            transition: transform 0.3s ease, right 0.3s ease, left 0.3s ease; /* Smooth transitions */
         }
+        /* Position for LTR languages */
         html[lang="en"] .whatsapp-button {
             right: 20px;
             left: auto;
         }
+        /* Position for RTL languages */
          html[lang="ar"] .whatsapp-button {
-            left: 20px; /* Default position for Arabic */
+            left: 20px; 
             right: auto;
         }
+        /* Hover effect */
         .whatsapp-button:hover {
-            transform: scale(1.05);
+            transform: scale(1.05); /* Slightly enlarge on hover */
         }
+        /* Icon size */
         .whatsapp-button svg {
             width: 24px;
             height: 24px;
@@ -58,20 +63,23 @@
             padding: 5px 10px;
             cursor: pointer;
             font-weight: 500;
-            color: #4B5563; /* gray-600 */
+            color: #4B5563; /* Tailwind gray-600 */
             transition: color 0.3s;
             border-radius: 6px;
             font-family: 'Inter', sans-serif; /* Keep switcher buttons in consistent font */
         }
+        /* Hover style for language buttons */
         .lang-switcher button:hover {
-            color: #1D4ED8; /* blue-700 */
+            color: #1D4ED8; /* Tailwind blue-700 */
         }
+        /* Active language button style */
          .lang-switcher button.active {
-            color: #1D4ED8; /* blue-700 */
+            color: #1D4ED8; /* Tailwind blue-700 */
             font-weight: 700;
-            background-color: #EFF6FF; /* blue-50 */
+            background-color: #EFF6FF; /* Tailwind blue-50 */
         }
         /* Adjustments for RTL */
+        /* Fix spacing utilities for RTL */
         html[dir="rtl"] .space-x-6 > :not([hidden]) ~ :not([hidden]) {
             --tw-space-x-reverse: 1;
             margin-right: calc(1.5rem * var(--tw-space-x-reverse));
@@ -82,48 +90,71 @@
             margin-right: calc(2rem * var(--tw-space-x-reverse));
             margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
         }
+        /* Fix margin/padding utilities for RTL */
          html[dir="rtl"] .ml-4 { margin-left: 0; margin-right: 1rem; }
          html[dir="rtl"] .pl-4 { padding-left: 0; padding-right: 1rem; }
          html[dir="rtl"] .mr-4 { margin-right: 0; margin-left: 1rem; } /* Added for carousel button */
          html[dir="rtl"] .mx-1 { margin-left: 0.25rem; margin-right: 0.25rem; }
 
+        /* Fix text alignment utilities for RTL */
         html[dir="rtl"] .text-center { text-align: center; }
         html[dir="rtl"] .text-left { text-align: right; }
         html[dir="rtl"] .text-right { text-align: left; }
+        /* Fix responsive text alignment for RTL */
         html[dir="rtl"] .md\:text-left { text-align: right; }
         html[dir="rtl"] .md\:text-right { text-align: left; }
+        /* Ensure form labels align correctly in RTL */
         html[dir="rtl"] label.text-left {
-             text-align: right !important;
+             text-align: right !important; /* Force right alignment */
         }
 
-        /* Hero Slideshow Styles */
-        .hero-slide {
-            background-size: cover;
-            background-position: center;
+        /* --- Hero Slideshow Styles --- */
+        /* Container for slides - needed for transform */
+        #hero-slides-container {
+            display: flex; /* Arrange slides horizontally */
+            transition: transform 0.5s ease-in-out; /* Smooth slide transition */
+            height: 100%; /* Ensure container fills parent height */
         }
+        .hero-slide {
+            min-width: 100%; /* Each slide takes full width */
+            height: 100%; /* Each slide takes full height */
+            background-size: cover; /* Scale background image to cover */
+            background-position: center; /* Center background image */
+            position: relative; /* Needed for potential overlays inside slide */
+        }
+        /* --- End Hero Slideshow Styles --- */
+
 
         /* About section icons */
         .about-service-icon {
-             height: 4rem; /* h-16 */
-             width: 4rem; /* w-16 */
-             margin-left: auto;
-             margin-right: auto;
-             margin-bottom: 1rem; /* mb-4 */
+             height: 4rem; /* Tailwind h-16 */
+             width: 4rem; /* Tailwind w-16 */
+             margin-left: auto; /* Center horizontally */
+             margin-right: auto; /* Center horizontally */
+             margin-bottom: 1rem; /* Tailwind mb-4 */
         }
-        html[dir="rtl"] .about-service-icon { } /* No change needed */
+        /* No specific RTL changes needed for centered icons */
+        html[dir="rtl"] .about-service-icon { } 
 
-        /* Carousel Styles */
+        /* --- Protection Carousel Styles --- */
         .carousel-container {
-            scroll-snap-type: x mandatory; /* Optional: adds snap scrolling */
+            overflow: hidden; /* Hide overflowing slides */
+            position: relative; /* Needed for absolute positioning of buttons */
         }
+        /* Container for the slides */
+        #protection-slides {
+             display: flex; /* Arrange slides in a row */
+             transition: transform 0.5s ease-in-out; /* Sliding animation */
+        }
+        /* Individual slide */
         .carousel-slide {
-            scroll-snap-align: start; /* Optional: part of snap scrolling */
-            flex: 0 0 100%; /* Ensure slides take full width */
+            min-width: 100%; /* Each slide takes full width */
+            box-sizing: border-box; /* Include padding/border in width */
         }
-        /* Hide scrollbar for carousel container */
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
+         /* Hide scrollbar (though overflow:hidden should suffice) */
+         .hide-scrollbar::-webkit-scrollbar { display: none; }
+         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+         /* --- End Protection Carousel Styles --- */
 
     </style>
 </head>
@@ -139,62 +170,66 @@
                     <a href="#services" class="text-gray-600 hover:text-blue-700 transition duration-300" data-translate-key="nav_services">Services</a>
                     <a href="tel:+966555206799" class="text-gray-600 hover:text-blue-700 transition duration-300" data-translate-key="nav_contact">Contact</a>
                  </div>
-                <div class="lang-switcher flex items-center border-l border-gray-200 ml-4 pl-4">
+                 <div class="lang-switcher flex items-center border-l border-gray-200 ml-4 pl-4">
                      <button id="lang-en" onclick="setLanguage('en')">English</button>
                      <span class="text-gray-300 mx-1">|</span>
                      <button id="lang-ar" onclick="setLanguage('ar')">العربية</button>
                  </div>
                  <button class="md:hidden focus:outline-none ml-4">
                     <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                </button>
+                    </button>
             </div>
          </nav>
     </header>
 
-    <section id="home" class="relative text-white min-h-[60vh] md:min-h-[70vh] flex items-center justify-center overflow-hidden">
-        <div id="hero-slideshow" class="absolute inset-0 z-0">
-            <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100"
-                 style="background-image: url('https://pink45-lgtm.github.io/nakalasaudi/slide3.png');">
-                 <img src="https://placehold.co/1920x1080/cccccc/ffffff?text=Loading+Image+1" alt="Moving truck and boxes" class="w-full h-full object-cover opacity-0" onerror="this.style.opacity='100'">
-            </div>
-            <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0"
-                 style="background-image: url(https://mzeefurniture.com/wp-content/uploads/2024/07/Classic-victorian-bed-design-pakistan.jpg');">
-                 <img src="https://placehold.co/1920x1080/cccccc/ffffff?text=Loading+Image+2" alt="Movers carrying furniture" class="w-full h-full object-cover opacity-0" onerror="this.style.opacity='100'">
-            </div>
-	    <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0"
-                 style="background-image: url('https://birchwoodfurniture.ca/wp-content/uploads/2023/07/Modern-Living-Room-Furniture-Ideas-Hero-scaled.jpg');">
-                 <img src="https://placehold.co/1920x1080/cccccc/ffffff?text=Loading+Image+3" alt="Movers carrying furniture" class="w-full h-full object-cover opacity-0" onerror="this.style.opacity='100'">
-            </div>
-	    <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0"
-                 style="background-image: url('https://cdn.media.amplience.net/i/shadesoflight/XU_Cat3');">
-                 <img src="https://placehold.co/1920x1080/cccccc/ffffff?text=Loading+Image+4" alt="Movers carrying furniture" class="w-full h-full object-cover opacity-0" onerror="this.style.opacity='100'">
-            </div>
-	    <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0"
-                 style="background-image: url('https://www.matco.ca/wp-content/uploads/2021/05/3-7-Benefits-of-Hiring-a-Local-Moving-Company.jpg');">
-                 <img src="https://placehold.co/1920x1080/cccccc/ffffff?text=Loading+Image+5" alt="Movers carrying furniture" class="w-full h-full object-cover opacity-0" onerror="this.style.opacity='100'">
-            </div>
-            <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0"
-                 style="background-image: url('https://nobili-design.com/storage/pages/1089/lg/turkish_furniture_stores_Nobili_Design.webp');">
-                 <img src="https://placehold.co/1920x1080/cccccc/ffffff?text=Loading+Image+6" alt="House shifting service" class="w-full h-full object-cover opacity-0" onerror="this.style.opacity='100'">
-            </div>
-	    <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0"
-                 style="background-image: url('https://www.mrmovers.pk/images/slider/House-shifting-lahore.jpg');">
-                 <img src="https://placehold.co/1920x1080/cccccc/ffffff?text=Loading+Image+7" alt="House shifting service" class="w-full h-full object-cover opacity-0" onerror="this.style.opacity='100'">
-            </div>
-            <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0"
-                 style="background-image: url('https://cdn.prod.website-files.com/58e984c0a0e2f91e7c795e7a/6560ba3ddfe38e854597bfb0_full%20service%20movers.jpg');">
-                 <img src="https://placehold.co/1920x1080/cccccc/ffffff?text=Loading+Image+8" alt="Full service movers team" class="w-full h-full object-cover opacity-0" onerror="this.style.opacity='100'">
-            </div>
-	    <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0"
-                 style="background-image: url('https://pink45-lgtm.github.io/nakalasaudi/slide4.png');">
-                 <img src="https://placehold.co/1920x1080/cccccc/ffffff?text=Loading+Image+9" alt="Full service movers team" class="w-full h-full object-cover opacity-0" onerror="this.style.opacity='100'">
+    <section id="home" class="relative text-white min-h-[80vh] md:min-h-[70vh] flex items-center justify-center overflow-hidden">
+        <div id="hero-slideshow" class="absolute inset-0 z-0 overflow-hidden"> 
+            <div id="hero-slides-container" class="h-full"> 
+                <div class="hero-slide" style="background-image: url('https://pink45-lgtm.github.io/nakalasaudi/slide3.png');">
+                    <img src="https://placehold.co/1920x1080/cccccc/ffffff?text=Loading+Image+1" alt="Moving truck and boxes" class="w-full h-full object-cover opacity-0 pointer-events-none" onerror="this.style.opacity='0'"> </div>
+                <div class="hero-slide" style="background-image: url('https://mzeefurniture.com/wp-content/uploads/2024/07/Classic-victorian-bed-design-pakistan.jpg');">
+                    <img src="https://placehold.co/1920x1080/cccccc/ffffff?text=Loading+Image+2" alt="Classic victorian bed design" class="w-full h-full object-cover opacity-0 pointer-events-none" onerror="this.style.opacity='0'">
+                </div>
+                <div class="hero-slide" style="background-image: url('https://birchwoodfurniture.ca/wp-content/uploads/2023/07/Modern-Living-Room-Furniture-Ideas-Hero-scaled.jpg');">
+                    <img src="https://placehold.co/1920x1080/cccccc/ffffff?text=Loading+Image+3" alt="Modern living room furniture" class="w-full h-full object-cover opacity-0 pointer-events-none" onerror="this.style.opacity='0'">
+                </div>
+                <div class="hero-slide" style="background-image: url('https://cdn.media.amplience.net/i/shadesoflight/XU_Cat3');">
+                    <img src="https://placehold.co/1920x1080/cccccc/ffffff?text=Loading+Image+4" alt="Furniture showcase" class="w-full h-full object-cover opacity-0 pointer-events-none" onerror="this.style.opacity='0'">
+                </div>
+                <div class="hero-slide" style="background-image: url('https://www.matco.ca/wp-content/uploads/2021/05/3-7-Benefits-of-Hiring-a-Local-Moving-Company.jpg');">
+                    <img src="https://placehold.co/1920x1080/cccccc/ffffff?text=Loading+Image+5" alt="Moving team loading truck" class="w-full h-full object-cover opacity-0 pointer-events-none" onerror="this.style.opacity='0'">
+                </div>
+                <div class="hero-slide" style="background-image: url('https://nobili-design.com/storage/pages/1089/lg/turkish_furniture_stores_Nobili_Design.webp');">
+                    <img src="https://placehold.co/1920x1080/cccccc/ffffff?text=Loading+Image+6" alt="Turkish furniture store" class="w-full h-full object-cover opacity-0 pointer-events-none" onerror="this.style.opacity='0'">
+                </div>
+                <div class="hero-slide" style="background-image: url('https://www.mrmovers.pk/images/slider/House-shifting-lahore.jpg');">
+                    <img src="https://placehold.co/1920x1080/cccccc/ffffff?text=Loading+Image+7" alt="House shifting service truck" class="w-full h-full object-cover opacity-0 pointer-events-none" onerror="this.style.opacity='0'">
+                </div>
+                <div class="hero-slide" style="background-image: url('https://cdn.prod.website-files.com/58e984c0a0e2f91e7c795e7a/6560ba3ddfe38e854597bfb0_full%20service%20movers.jpg');">
+                    <img src="https://placehold.co/1920x1080/cccccc/ffffff?text=Loading+Image+8" alt="Full service movers team" class="w-full h-full object-cover opacity-0 pointer-events-none" onerror="this.style.opacity='0'">
+                </div>
+                <div class="hero-slide" style="background-image: url('https://pink45-lgtm.github.io/nakalasaudi/slide4.png');">
+                    <img src="https://placehold.co/1920x1080/cccccc/ffffff?text=Loading+Image+9" alt="Moving team with boxes" class="w-full h-full object-cover opacity-0 pointer-events-none" onerror="this.style.opacity='0'">
+                </div>
             </div>
         </div>
-        <div id="hero-content" class="relative z-10 container mx-auto px-6 py-12 text-center	 bg-black/50 rounded-lg max-w-4xl">
+
+        <div id="hero-content" class="relative z-10 container mx-auto px-6 py-12 text-center bg-black/50 rounded-lg max-w-4xl"> 
              <h1 class="text-4xl md:text-5xl font-bold mb-4" data-translate-key="hero_title">Muasasat Sultan</h1>
              <p class="text-lg md:text-xl mb-8 text-gray-200" data-translate-key="hero_subtitle">Your trusted partner for hassle-free furniture moving, dismantling & assembly in Riyadh.</p>
-             <a href="tel:+966555206799" class="bg-white text-blue-700 font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-gray-100 transition duration-300" data-translate-key="hero_cta">Get a Free Quote</a>
+             <a href="tel:+966555206799" class="bg-white/70 text-blue-700 font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-gray-100/80 transition duration-300" data-translate-key="hero_cta">Get a Free Quote</a>
         </div>
+
+        <button id="prevBtnHero" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-black bg-opacity-30 text-white p-2 rounded-full hover:bg-opacity-50 focus:outline-none ml-2 md:ml-4 z-20">
+             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 md:h-8 md:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+        </button>
+         <button id="nextBtnHero" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-black bg-opacity-30 text-white p-2 rounded-full hover:bg-opacity-50 focus:outline-none mr-2 md:mr-4 z-20">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 md:h-8 md:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+         </button>
     </section>
 
     <section id="about" class="py-16 bg-white">
@@ -228,7 +263,7 @@
                     <h3 class="text-xl font-semibold text-blue-700 mb-2" data-translate-key="about_service_furniture_title">Furniture Movers</h3>
                     <p class="text-gray-600" data-translate-key="about_service_furniture_desc">Call us and get earliest and best furniture packing and moving services in whatever part of Riyad you live in!</p>
                 </div>
-                 <div class="text-center">
+                <div class="text-center">
                      <a href="https://www.mrmovers.pk/services/apartment-movers.htm" target="_blank" rel="noopener noreferrer">
                         <img src="https://www.pakmovers.com/images/icon-2.png" alt="Packers and Movers Icon" class="about-service-icon" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/64x64/e0e0e0/757575?text=Icon';">
                     </a>
@@ -261,45 +296,42 @@
                     <h3 class="text-xl font-semibold text-blue-700 mb-3" data-translate-key="service4_title">Furniture Assembly/Disassembly</h3>
                      <p class="text-gray-600" data-translate-key="service4_desc">We can disassemble large furniture items before the move and reassemble them correctly in your new home or office.</p>
                 </div>
-                 <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
                     <h3 class="text-xl font-semibold text-blue-700 mb-3" data-translate-key="service5_title">Storage Solutions</h3>
                      <p class="text-gray-600" data-translate-key="service5_desc">Need temporary storage? We offer secure and climate-controlled storage options for short-term or long-term needs.</p>
                 </div>
-                 <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
                     <h3 class="text-xl font-semibold text-blue-700 mb-3" data-translate-key="service6_title">Local Moves</h3>
                     <p class="text-gray-600" data-translate-key="service6_desc">Specializing in moves within Riyadh and surrounding areas. Fast, efficient, and careful handling guaranteed for local relocations.</p>
                 </div>
-                 </div>
+            </div>
         </div>
     </section>
 
     <section id="protection-showcase" class="py-16 bg-white">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-12" data-translate-key="protection_title">How We Protect Your Belongings</h2>
-             <div class="relative max-w-4xl mx-auto">
-                <div id="protection-carousel" class="carousel-container overflow-x-auto hide-scrollbar flex rounded-lg shadow-lg">
-                    <div id="protection-slides" class="flex transition-transform duration-500 ease-in-out">
-                        <div class="carousel-slide min-w-full">
+             <div class="relative max-w-4xl mx-auto carousel-container"> <div id="protection-carousel" class="hide-scrollbar flex rounded-lg shadow-lg"> <div id="protection-slides" class="flex"> <div class="carousel-slide">
                              <img src="https://www.nestbedding.com/cdn/shop/articles/woman-posing-with-her-new-headboard-3616687_5322x.jpg?v=1585697935"
                                  alt="Headboard wrapped for protection" class="w-full h-80 md:h-96 object-cover" loading="lazy"
                                  onerror="this.onerror=null; this.src='https://placehold.co/1200x600/cccccc/ffffff?text=Image+1+Error';">
                         </div>
-                        <div class="carousel-slide min-w-full">
+                        <div class="carousel-slide">
                             <img src="https://standardtextilehome.com/cdn/shop/articles/Circa_blog-622920_1024x1024.jpg?v=1617736755"
                                  alt="Bedding being prepared for moving" class="w-full h-80 md:h-96 object-cover" loading="lazy"
                                  onerror="this.onerror=null; this.src='https://placehold.co/1200x600/cccccc/ffffff?text=Image+2+Error';">
                         </div>
-                        <div class="carousel-slide min-w-full">
+                        <div class="carousel-slide">
                             <img src="https://i.ytimg.com/vi/qZJ6lYbfVKo/maxresdefault.jpg"
                                  alt="Furniture wrapped in protective plastic" class="w-full h-80 md:h-96 object-cover" loading="lazy"
                                  onerror="this.onerror=null; this.src='https://placehold.co/1200x600/cccccc/ffffff?text=Image+3+Error';">
                         </div>
-                        <div class="carousel-slide min-w-full">
+                        <div class="carousel-slide">
                             <img src="https://moversonduty.com/wp-content/uploads/2018/03/14691030_329663167389231_4925320533324788873_n.jpg"
                                  alt="Movers wrapping furniture carefully" class="w-full h-80 md:h-96 object-cover" loading="lazy"
                                  onerror="this.onerror=null; this.src='https://placehold.co/1200x600/cccccc/ffffff?text=Image+4+Error';">
                         </div>
-                        <div class="carousel-slide min-w-full">
+                        <div class="carousel-slide">
                             <img src="https://images.airtasker.com/v7/https://airtasker-seo-assets-prod.s3.amazonaws.com/en_AU/1682055522366-wrapping-a-couch.jpg?gravity=smart&w=1920&h=1080"
                                  alt="Couch being wrapped in bubble wrap" class="w-full h-80 md:h-96 object-cover" loading="lazy"
                                  onerror="this.onerror=null; this.src='https://placehold.co/1200x600/cccccc/ffffff?text=Image+5+Error';">
@@ -307,12 +339,12 @@
                     </div>
                 </div>
 
-                <button id="prevBtnProtection" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 focus:outline-none ml-2 md:ml-4">
+                <button id="prevBtnProtection" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 focus:outline-none ml-2 md:ml-4 z-20">
                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                     </svg>
                 </button>
-                 <button id="nextBtnProtection" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 focus:outline-none mr-2 md:mr-4">
+                <button id="nextBtnProtection" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 focus:outline-none mr-2 md:mr-4 z-20">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
@@ -320,13 +352,13 @@
             </div>
         </div>
     </section>
+
     <section id="contact" class="py-16 bg-gray-100">
          <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-12" data-translate-key="contact_title">Get in Touch</h2>
             <div class="max-w-2xl mx-auto bg-gray-50 p-8 rounded-lg shadow-md">
                  <p class="text-center text-gray-600 mb-6" data-translate-key="contact_subtitle">Fill out the form below for a free quote or inquiry. We'll get back to you as soon as possible.</p>
-                <form action="#" method="POST">
-                    <div class="mb-4">
+                <form action="#" method="POST"> <div class="mb-4">
                         <label for="name" class="block text-gray-700 font-medium mb-2 text-left" data-translate-key="form_name_label">Name</label>
                        <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" data-translate-key="form_name_placeholder" placeholder="Your Name">
                     </div>
@@ -346,11 +378,11 @@
                          <label for="moving_to" class="block text-gray-700 font-medium mb-2 text-left" data-translate-key="form_to_label">Moving To (Address/Area)</label>
                         <input type="text" id="moving_to" name="moving_to" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" data-translate-key="form_to_placeholder" placeholder="Destination Address">
                     </div>
-                     <div class="mb-6">
+                    <div class="mb-6">
                         <label for="message" class="block text-gray-700 font-medium mb-2 text-left" data-translate-key="form_message_label">Message / Details</label>
                         <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" data-translate-key="form_message_placeholder" placeholder="Describe your moving needs..."></textarea>
                      </div>
-                    <div class="text-center">
+                     <div class="text-center">
                         <button type="submit" class="bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-blue-800 transition duration-300" data-translate-key="form_submit_button">Send Message</button>
                     </div>
                 </form>
@@ -358,9 +390,7 @@
              <div class="text-center mt-12 text-gray-600">
                 <p data-translate-key="contact_direct_intro">You can also reach us directly:</p>
                 <p><strong data-translate-key="contact_phone_label">Phone:</strong> <a href="tel:+966555206799" class="text-blue-600 hover:underline">+966 555 206799</a> </p>
-                <p><strong data-translate-key="contact_email_label">Email:</strong> <a href="mailto:info@alriyadhmovers.com" class="text-blue-600 hover:underline">info@alriyadhmovers.com</a> </p>
-                 <p><strong data-translate-key="contact_address_label">Address:</strong> <span data-translate-key="contact_address_value">Your Company Address, Riyadh, Saudi Arabia</span>		 </p>
-            </div>
+                <p><strong data-translate-key="contact_email_label">Email:</strong> <a href="mailto:info@alriyadhmovers.com" class="text-blue-600 hover:underline">info@alriyadhmovers.com</a> </p> <p><strong data-translate-key="contact_address_label">Address:</strong> <span data-translate-key="contact_address_value">Your Company Address, Riyadh, Saudi Arabia</span></p> </div>
         </div>
     </section>
 
@@ -381,33 +411,29 @@
     </a>
 
     <script>
-        // --- Translations ---
+        // --- Translations Object ---
         const translations = {
+            // English Translations
             en: {
-                // CHANGE: Updated company name translation
                 company_name: "Home Shifting Service",
                 nav_home: "Home",
-                 nav_about: "About Us",
+                nav_about: "About Us",
                 nav_services: "Services",
                 nav_contact: "Contact",
-                 // CHANGE: Updated hero title translation
-                 hero_title: "Muasasat Sultan",
-                // CHANGE: Updated hero subtitle translation
+                hero_title: "Muasasat Sultan",
                 hero_subtitle: "Your trusted partner for hassle-free furniture moving, dismantling & assembly in Riyadh.",
-                 hero_cta: "Get a Free Quote",
-                 // CHANGE: Updated about title translation
-                 about_title: "About Our Moving Service",
+                hero_cta: "Get a Free Quote",
+                about_title: "About Our Moving Service",
                 about_text: "We are a dedicated team of professional movers based in Riyadh, committed to providing efficient, safe, and affordable relocation services. Whether you're moving across the street or across the city, we handle your belongings with the utmost care, ensuring a stress-free transition to your new home or office. Our experience and attention to detail make us the preferred choice for moving services.",
                 about_service_home_title: "Home Movers",
                 about_service_home_desc: "We can pack up all home items without any damage and will shift it to new place as per your convenience.",
                 about_service_office_title: "Office Movers",
-                  about_service_office_desc: "Mr Movers can fix all office furniture, gadgets, files and other machines safely and move to new place in safe vehicles.",
+                about_service_office_desc: "Mr Movers can fix all office furniture, gadgets, files and other machines safely and move to new place in safe vehicles.",
                 about_service_furniture_title: "Furniture Movers",
                 about_service_furniture_desc: "Call us and get earliest and best furniture packing and moving services in whatever part of Riyad you live in!",
                 about_service_packers_title: "Packers and Movers",
-                 about_service_packers_desc: "We will pack your all luggage properly in boxes. Our professional team timely packing and moving vans to transfer all stuff to new place.",
+                about_service_packers_desc: "We will pack your all luggage properly in boxes. Our professional team timely packing and moving vans to transfer all stuff to new place.",
                 services_title: "Our Services",
-                // ... other service keys ...
                 service1_title: "Home Relocation",
                 service1_desc: "Complete packing, loading, transportation, unloading, and unpacking services for your household items. We ensure your furniture and belongings arrive safely.",
                 service2_title: "Office Moving",
@@ -417,10 +443,9 @@
                 service4_title: "Furniture Assembly/Disassembly",
                 service4_desc: "We can disassemble large furniture items before the move and reassemble them correctly in your new home or office.",
                 service5_title: "Storage Solutions",
-                 service5_desc: "Need temporary storage? We offer secure and climate-controlled storage options for short-term or long-term needs.",
+                service5_desc: "Need temporary storage? We offer secure and climate-controlled storage options for short-term or long-term needs.",
                 service6_title: "Local Moves",
                 service6_desc: "Specializing in moves within Riyadh and surrounding areas. Fast, efficient, and careful handling guaranteed for local relocations.",
-                // New key for protection section title
                 protection_title: "How We Protect Your Belongings",
                 contact_title: "Get in Touch",
                 contact_subtitle: "Fill out the form below for a free quote or inquiry. We'll get back to you as soon as possible.",
@@ -429,48 +454,35 @@
                 form_email_label: "Email",
                 form_email_placeholder: "your.email@example.com",
                 form_phone_label: "Phone Number",
-                // CHANGE: Ensured correct phone number format in translation
-                 form_phone_placeholder: "+966555206799",
+                form_phone_placeholder: "+966555206799",
                 form_from_label: "Moving From (Address/Area)",
                 form_from_placeholder: "Origin Address",
                 form_to_label: "Moving To (Address/Area)",
                 form_to_placeholder: "Destination Address",
-                 form_message_label: "Message / Details",
+                form_message_label: "Message / Details",
                 form_message_placeholder: "Describe your moving needs...",
                 form_submit_button: "Send Message",
                 contact_direct_intro: "You can also reach us directly:",
                 contact_phone_label: "Phone:",
-                // CHANGE: Updated phone number translation placeholder text (though link is correct)
-                contact_phone_replace: "+966 555 206799", // Represents the actual number shown
                 contact_email_label: "Email:",
-                // NOTE: Update this email placeholder if needed
-                contact_email_replace: "info@yourcompany.com",
                 contact_address_label: "Address:",
-                 // NOTE: Update this address placeholder
-                contact_address_value: "Your Company Address, Riyadh, Saudi Arabia",
-                contact_address_replace: "Your Company Address, Riyadh, Saudi Arabia",
-                // CHANGE: Updated copyright company name translation
+                contact_address_value: "Your Company Address, Riyadh, Saudi Arabia", // Placeholder
                 footer_copyright: "&copy; 2025 Home Shifting Service. All Rights Reserved.",
                 whatsapp_chat: "Chat on WhatsApp",
-                // CHANGE: Updated WhatsApp link text translation
                 whatsapp_link_text: "Hello Home Shifting Service, I would like to inquire about your moving services."
             },
+            // Arabic Translations
             ar: {
-                // --- !!! Note: Arabic translations below are PARTIAL and might need review/updates !!! ---
-                // CHANGE: Updated company name translation (Arabic)
-                company_name: "خدمة نقل الأثاث", // Literal translation, adjust if needed
+                company_name: "خدمة نقل الأثاث", 
                 nav_home: "الرئيسية",
                 nav_about: "معلومات عنا",
                 nav_services: "خدماتنا",
                 nav_contact: "اتصل بنا",
-                // CHANGE: Updated hero title translation (Arabic)
                 hero_title: "موسسة سلطان",
-                // CHANGE: Updated hero subtitle translation (Arabic)
                 hero_subtitle: "شريكك الموثوق لنقل وفك وتركيب الأثاث بدون متاعب في الرياض.",
                 hero_cta: "احصل على عرض سعر مجاني",
-                 // CHANGE: Updated about title translation (Arabic)
-                 about_title: "عن خدمة النقل لدينا",
-                 about_text: "نحن فريق متخصص من المحترفين في مجال النقل بالرياض، ملتزمون بتقديم خدمات نقل فعالة وآمنة وبأسعار معقولة. سواء كنت تنتقل عبر الشارع أو عبر المدينة، فإننا نتعامل مع ممتلكاتك بعناية فائقة، مما يضمن انتقالًا خاليًا من التوتر إلى منزلك أو مكتبك الجديد. خبرتنا واهتمامنا بالتفاصيل يجعلاننا الخيار المفضل لخدمات النقل.",
+                about_title: "عن خدمة النقل لدينا",
+                about_text: "نحن فريق متخصص من المحترفين في مجال النقل بالرياض، ملتزمون بتقديم خدمات نقل فعالة وآمنة وبأسعار معقولة. سواء كنت تنتقل عبر الشارع أو عبر المدينة، فإننا نتعامل مع ممتلكاتك بعناية فائقة، مما يضمن انتقالًا خاليًا من التوتر إلى منزلك أو مكتبك الجديد. خبرتنا واهتمامنا بالتفاصيل يجعلاننا الخيار المفضل لخدمات النقل.",
                 about_service_home_title: "نقل المنازل",
                 about_service_home_desc: "يمكننا حزم جميع الأدوات المنزلية دون أي ضرر ونقلها إلى مكان جديد حسب راحتك.",
                 about_service_office_title: "نقل المكاتب",
@@ -480,7 +492,6 @@
                 about_service_packers_title: "التعبئة والنقل",
                 about_service_packers_desc: "سنقوم بتعبئة جميع أمتعتك بشكل صحيح في صناديق. فريقنا المحترف يقوم بالتعبئة في الوقت المناسب وشاحنات النقل لنقل جميع الأشياء إلى مكان جديد.",
                 services_title: "خدماتنا",
-                // ... other service keys ...
                 service1_title: "نقل المنازل",
                 service1_desc: "خدمات تغليف وتحميل ونقل وتفريغ وإعادة ترتيب كاملة لمقتنيات منزلك. نضمن وصول أثاثك وممتلكاتك بأمان.",
                 service2_title: "نقل المكاتب",
@@ -501,79 +512,78 @@
                 form_email_label: "البريد الإلكتروني",
                 form_email_placeholder: "your.email@example.com",
                 form_phone_label: "رقم الهاتف",
-                // CHANGE: Ensured correct phone number format in translation placeholder
-                 form_phone_placeholder: "+966555206799",
+                form_phone_placeholder: "+966555206799",
                 form_from_label: "النقل من (العنوان/المنطقة)",
                 form_from_placeholder: "عنوان الأصل",
                 form_to_label: "النقل إلى (العنوان/المنطقة)",
                 form_to_placeholder: "عنوان الوجهة",
-                 form_message_label: "الرسالة / التفاصيل",
+                form_message_label: "الرسالة / التفاصيل",
                 form_message_placeholder: "صف احتياجات النقل الخاصة بك...",
                 form_submit_button: "إرسال الرسالة",
                 contact_direct_intro: "يمكنك أيضًا التواصل معنا مباشرة:",
                 contact_phone_label: "الهاتف:",
-                 // CHANGE: Updated phone number translation placeholder text (Arabic)
-                contact_phone_replace: "+966 555 206799", // Represents the actual number shown
                 contact_email_label: "البريد الإلكتروني:",
-                 // NOTE: Update this email placeholder if needed
-                contact_email_replace: "info@yourcompany.com", // Replace with actual email
                 contact_address_label: "العنوان:",
-                 // NOTE: Update this address placeholder
-                 contact_address_value: "عنوان شركتك، الرياض، المملكة العربية السعودية",
-                 contact_address_replace: "عنوان شركتك، الرياض، المملكة العربية السعودية",
-                // CHANGE: Updated copyright company name translation (Arabic)
+                contact_address_value: "عنوان شركتك، الرياض، المملكة العربية السعودية", // Placeholder
                 footer_copyright: "© 2025 خدمة نقل الأثاث. جميع الحقوق محفوظة.",
                 whatsapp_chat: "الدردشة على الواتساب",
-                 // CHANGE: Updated WhatsApp link text translation (Arabic)
-                 whatsapp_link_text: "مرحبًا خدمة نقل الأثاث، أود الاستفسار عن خدمات النقل الخاصة بكم."
+                whatsapp_link_text: "مرحبًا خدمة نقل الأثاث، أود الاستفسار عن خدمات النقل الخاصة بكم."
             }
         };
 
         // --- Language Switching Logic ---
         const supportedLangs = ['en', 'ar'];
-         let currentLang = 'ar'; // Default language set to Arabic
+        let currentLang = 'ar'; // Default language set to Arabic
 
+        /**
+         * Sets the language of the page and updates UI elements.
+         * @param {string} lang - The language code ('en' or 'ar').
+         */
         function setLanguage(lang) {
             if (!supportedLangs.includes(lang)) {
                 console.warn(`Language "${lang}" not supported.`);
                 return;
             }
 
+            const previousDir = document.documentElement.dir; // Get direction before change
             currentLang = lang;
-             const langTranslations = translations[lang] || translations.en; // Fallback to English
+            const langTranslations = translations[lang] || translations.en; // Fallback to English
 
-            // Update HTML lang and dir attributes
+            // Update HTML lang and dir attributes for accessibility and styling
             document.documentElement.lang = lang;
             document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            const currentDir = document.documentElement.dir; // Get direction after change
 
-            // Update text content and attributes
+            // Update text content and attributes based on data-translate-key
             document.querySelectorAll('[data-translate-key]').forEach(element => {
-                 const key = element.getAttribute('data-translate-key');
-                 const translation = langTranslations[key] || translations.en[key]; // Fallback to English per key
+                const key = element.getAttribute('data-translate-key');
+                const translation = langTranslations[key] || translations.en[key]; // Fallback to English per key
 
                 if (translation !== undefined) {
+                    // Handle different element types appropriately
                     if (element.hasAttribute('placeholder')) {
                         element.placeholder = translation;
                     } else if (key === 'footer_copyright') {
                         element.innerHTML = translation; // Use innerHTML for copyright symbol
                     } else if (key === 'contact_address_value') {
                          element.textContent = translation; // Directly update the span for address
-                    } else if (element.tagName === 'A' && element.getAttribute('href')?.startsWith('tel:')) {
-                         // Update link text content, but keep href as is (updated elsewhere if needed)
-                         element.textContent = translation;
-                    } else if (element.tagName === 'A' && element.getAttribute('href')?.startsWith('mailto:')) {
-                         // Update link text content, but keep href as is (updated elsewhere if needed)
-                         element.textContent = translation;
+                    } else if (element.tagName === 'A' && (element.getAttribute('href')?.startsWith('tel:') || element.getAttribute('href')?.startsWith('mailto:'))) {
+                         // Update link text content, but keep href as is
+                         // Check if the link text is the phone/email itself or a generic label
+                         if (element.textContent.match(/^\+?\d/) || element.textContent.includes('@')) {
+                            // If it looks like a phone/email, don't overwrite with label like "Phone:"
+                         } else {
+                            element.textContent = translation;
+                         }
                     } else {
-                         // General text update for other elements like H1, H2, P, SPAN, BUTTON etc.
+                         // General text update for other elements (H1, P, SPAN, BUTTON etc.)
                          // Avoid overwriting elements that contain other translated elements unless necessary
-                         // Check if the element directly contains the key or if it's a parent container
                          const childHasKey = element.querySelector('[data-translate-key]');
                          if (!childHasKey || element.isSameNode(childHasKey)) {
                              // Only update if it's the target element or doesn't contain other keys
                              if (element.childNodes.length === 1 && element.childNodes[0].nodeType === Node.TEXT_NODE) {
                                  element.textContent = translation; // Safest for simple text nodes
-                             } else if (element.tagName === 'BUTTON' || element.tagName === 'H1' || element.tagName === 'H2' || element.tagName === 'H3' || element.tagName === 'P' || element.tagName === 'SPAN') {
+                             } else if (['BUTTON', 'H1', 'H2', 'H3', 'P', 'SPAN'].includes(element.tagName)) {
                                  // For common text containers, attempt update if no nested keys detected
                                  let containsNestedKeys = false;
                                  element.querySelectorAll('[data-translate-key]').forEach(nested => {
@@ -590,12 +600,10 @@
                 }
             });
 
-
-            // Update WhatsApp link text parameter AND base URL if needed
+            // Update WhatsApp link text parameter and button text
             const whatsappLink = document.getElementById('whatsapp-link');
             if (whatsappLink) {
-                 // CHANGE: Ensure base URL uses the correct number
-                 const baseWhatsappUrl = `https://wa.me/+966555206799`; // Use correct number directly
+                 const baseWhatsappUrl = `https://wa.me/+966555206799`; // Use correct number
                  const whatsappTextKey = 'whatsapp_link_text';
                  const encodedText = encodeURIComponent(langTranslations[whatsappTextKey] || translations.en[whatsappTextKey]);
                  whatsappLink.href = `${baseWhatsappUrl}?text=${encodedText}`;
@@ -607,11 +615,6 @@
                  }
             }
 
-             // Update contact section direct links texts (Phone, Email) if they are separate elements
-             // Example for phone (assuming the link text is directly modifiable or you add a span)
-             const phoneLink = document.querySelector('a[href="tel:+966555206799"]');
-             if(phoneLink) phoneLink.textContent = '+966 555 206799'; // Set the number directly
-
              // Update active language button style
             document.querySelectorAll('.lang-switcher button').forEach(button => {
                 button.classList.remove('active');
@@ -620,82 +623,127 @@
             if (activeButton) {
                 activeButton.classList.add('active');
             }
-        }
-
-
-        // --- Hero Slideshow Logic ---
-        function startHeroSlideshow() {
-            const slides = document.querySelectorAll('#hero-slideshow .hero-slide');
-            let currentSlideIndex = 0;
-            const slideInterval = 5000; // 5 seconds
-
-            if (slides.length > 1) {
-                setInterval(() => {
-                    if (slides[currentSlideIndex]) {
-                        slides[currentSlideIndex].classList.remove('opacity-100');
-                        slides[currentSlideIndex].classList.add('opacity-0');
-                    }
-                    currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-                     if (slides[currentSlideIndex]) {
-                        slides[currentSlideIndex].classList.remove('opacity-0');
-                        slides[currentSlideIndex].classList.add('opacity-100');
-                     }
-                }, slideInterval);
+            
+            // Re-initialize carousels ONLY if direction changed to handle RTL correctly
+            if (previousDir !== currentDir) {
+                 setupCarousel('hero', '#hero-slides-container', '#prevBtnHero', '#nextBtnHero', true); // Reinit Hero Carousel
+                 setupCarousel('protection', '#protection-slides', '#prevBtnProtection', '#nextBtnProtection'); // Reinit Protection Carousel
             }
         }
 
-        // --- Protection Carousel Logic ---
-        function setupProtectionCarousel() {
-    const slidesContainer = document.getElementById('protection-slides');
-    const prevBtn = document.getElementById('prevBtnProtection');
-    const nextBtn = document.getElementById('nextBtnProtection');
+        // --- Generic Carousel Logic ---
+        /**
+         * Sets up the navigation and behavior for a generic carousel.
+         * @param {string} idPrefix - Unique prefix for this carousel instance (e.g., 'hero', 'protection').
+         * @param {string} slidesContainerSelector - CSS selector for the container holding the slides.
+         * @param {string} prevBtnSelector - CSS selector for the previous button.
+         * @param {string} nextBtnSelector - CSS selector for the next button.
+         * @param {boolean} [autoPlay=false] - Whether the carousel should auto-play.
+         * @param {number} [interval=5000] - Auto-play interval in milliseconds.
+         */
+        function setupCarousel(idPrefix, slidesContainerSelector, prevBtnSelector, nextBtnSelector, autoPlay = false, interval = 5000) {
+            const slidesContainer = document.querySelector(slidesContainerSelector);
+            const prevBtn = document.querySelector(prevBtnSelector);
+            const nextBtn = document.querySelector(nextBtnSelector);
+            let autoPlayIntervalId = null; // To store the interval ID
 
-    if (!slidesContainer || !prevBtn || !nextBtn) {
-        console.error("Protection carousel elements not found!");
-        return;
-    }
+            // Basic error checking
+            if (!slidesContainer || !prevBtn || !nextBtn) {
+                console.error(`Carousel elements not found for prefix "${idPrefix}"! Check selectors: ${slidesContainerSelector}, ${prevBtnSelector}, ${nextBtnSelector}`);
+                return;
+            }
 
-    const slides = slidesContainer.children;
-    const totalSlides = slides.length;
-    let currentIndex = 0;
+            const slides = slidesContainer.children;
+            const totalSlides = slides.length;
+            
+            // Check if there are slides before proceeding
+            if (totalSlides === 0) {
+                console.warn(`Carousel "${idPrefix}" has no slides.`);
+                prevBtn.style.display = 'none';
+                nextBtn.style.display = 'none';
+                return;
+            } else {
+                prevBtn.style.display = 'block';
+                nextBtn.style.display = 'block';
+            }
+            
+            let currentIndex = 0; // Track the current slide index
 
-    function goToSlide(index) {
-        if (index < 0) {
-            index = totalSlides - 1;
-        } else if (index >= totalSlides) {
-            index = 0;
+            /**
+             * Moves the carousel to the specified slide index.
+             * @param {number} index - The index of the slide to navigate to.
+             */
+            function goToSlide(index) {
+                 // Loop navigation: if index is out of bounds, wrap around
+                 if (index < 0) {
+                     index = totalSlides - 1;
+                 } else if (index >= totalSlides) {
+                     index = 0;
+                 }
+                
+                // Check current language direction (LTR or RTL)
+                const isRTL = document.documentElement.dir === 'rtl';
+                
+                // Calculate the translateX percentage based on index and direction
+                const translateValue = isRTL ? index * 100 : -index * 100;
+                slidesContainer.style.transform = `translateX(${translateValue}%)`;
+                currentIndex = index;
+            }
+
+            /** Resets and starts the auto-play timer */
+            function startAutoPlay() {
+                stopAutoPlay(); // Clear existing interval first
+                if (autoPlay && totalSlides > 1) {
+                   autoPlayIntervalId = setInterval(() => {
+                       goToSlide(currentIndex + 1);
+                   }, interval);
+                }
+            }
+
+             /** Stops the auto-play timer */
+            function stopAutoPlay() {
+                if (autoPlayIntervalId) {
+                    clearInterval(autoPlayIntervalId);
+                    autoPlayIntervalId = null;
+                }
+            }
+
+            // Event listeners for previous and next buttons
+            prevBtn.addEventListener('click', () => {
+                stopAutoPlay(); // Stop auto-play on manual interaction
+                goToSlide(currentIndex - 1);
+                startAutoPlay(); // Restart auto-play timer
+            });
+
+            nextBtn.addEventListener('click', () => {
+                stopAutoPlay(); // Stop auto-play on manual interaction
+                goToSlide(currentIndex + 1);
+                startAutoPlay(); // Restart auto-play timer
+            });
+            
+             // Optional: Stop auto-play when mouse is over the carousel
+             const carouselElement = slidesContainer.closest('section'); // Adjust selector if needed
+             if (carouselElement && autoPlay) {
+                 carouselElement.addEventListener('mouseenter', stopAutoPlay);
+                 carouselElement.addEventListener('mouseleave', startAutoPlay);
+             }
+
+
+            // Initialize carousel to the first slide
+            goToSlide(0);
+            // Start auto-play if enabled
+            startAutoPlay();
         }
-        
-        // Get current direction
-        const isRTL = document.documentElement.dir === 'rtl';
-        
-        // Calculate translation based on direction
-        const translateValue = isRTL ? index * 100 : -index * 100;
-        slidesContainer.style.transform = `translateX(${translateValue}%)`;
-        currentIndex = index;
-    }
-
-    prevBtn.addEventListener('click', () => {
-        goToSlide(currentIndex - 1);
-    });
-
-    nextBtn.addEventListener('click', () => {
-        goToSlide(currentIndex + 1);
-    });
-
-    // Initialize
-    goToSlide(0);
-}
 
 
-        // --- Initial Setup ---
+        // --- Initial Setup on DOMContentLoaded ---
         document.addEventListener('DOMContentLoaded', () => {
-            // Set initial language to Arabic (as per original code)
-            setLanguage('ar');
-            // Start the hero slideshow
-            startHeroSlideshow();
-            // Setup the protection carousel
-            setupProtectionCarousel();
+            // Set initial language (defaulting to Arabic as per original setup)
+            setLanguage('ar'); // This will also call setupCarousel if direction changes
+
+            // Initial setup for both carousels (will be re-run by setLanguage if dir changes)
+            setupCarousel('hero', '#hero-slides-container', '#prevBtnHero', '#nextBtnHero', true, 6000); // Hero carousel with auto-play
+            setupCarousel('protection', '#protection-slides', '#prevBtnProtection', '#nextBtnProtection'); // Protection carousel, no auto-play
         });
 
     </script>
