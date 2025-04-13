@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl"> <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alriyadh Movers - Reliable Moving Services</title>
+    <title>Home Shifting Service Riyadh - Fakk wa Tarkeeb</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -84,6 +84,7 @@
         }
          html[dir="rtl"] .ml-4 { margin-left: 0; margin-right: 1rem; }
          html[dir="rtl"] .pl-4 { padding-left: 0; padding-right: 1rem; }
+         html[dir="rtl"] .mr-4 { margin-right: 0; margin-left: 1rem; } /* Added for carousel button */
          html[dir="rtl"] .mx-1 { margin-left: 0.25rem; margin-right: 0.25rem; }
 
         html[dir="rtl"] .text-center { text-align: center; }
@@ -101,7 +102,7 @@
             background-position: center;
         }
 
-        /* Added style for the new about section icons */
+        /* About section icons */
         .about-service-icon {
              height: 4rem; /* h-16 */
              width: 4rem; /* w-16 */
@@ -109,9 +110,20 @@
              margin-right: auto;
              margin-bottom: 1rem; /* mb-4 */
         }
-        html[dir="rtl"] .about-service-icon {
-            /* No change needed for mx-auto */
+        html[dir="rtl"] .about-service-icon { } /* No change needed */
+
+        /* Carousel Styles */
+        .carousel-container {
+            scroll-snap-type: x mandatory; /* Optional: adds snap scrolling */
         }
+        .carousel-slide {
+            scroll-snap-align: start; /* Optional: part of snap scrolling */
+            flex: 0 0 100%; /* Ensure slides take full width */
+        }
+        /* Hide scrollbar for carousel container */
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
 
     </style>
 </head>
@@ -119,14 +131,14 @@
 
     <header class="bg-white shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-blue-700" data-translate-key="company_name">Alriyadh Movers</a>
+            <a href="#" class="text-xl md:text-2xl font-bold text-blue-700" data-translate-key="company_name">Home Shifting Service</a>
             <div class="flex items-center">
                 <div class="hidden md:flex items-center space-x-6">
-                    <a href="#home" class="text-gray-600 hover:text-blue-700 transition duration-300" data-translate-key="nav_home">Home</a>
+                   <a href="#home" class="text-gray-600 hover:text-blue-700 transition duration-300" data-translate-key="nav_home">Home</a>
                     <a href="#about" class="text-gray-600 hover:text-blue-700 transition duration-300" data-translate-key="nav_about">About Us</a>
                     <a href="#services" class="text-gray-600 hover:text-blue-700 transition duration-300" data-translate-key="nav_services">Services</a>
-                    <a href="#contact" class="text-gray-600 hover:text-blue-700 transition duration-300" data-translate-key="nav_contact">Contact</a>
-                </div>
+                    <a href="tel:+966555206799" class="text-gray-600 hover:text-blue-700 transition duration-300" data-translate-key="nav_contact">Contact</a>
+                 </div>
                 <div class="lang-switcher flex items-center border-l border-gray-200 ml-4 pl-4">
                      <button id="lang-en" onclick="setLanguage('en')">English</button>
                      <span class="text-gray-300 mx-1">|</span>
@@ -136,13 +148,13 @@
                     <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>
-        </nav>
+         </nav>
     </header>
 
     <section id="home" class="relative text-white min-h-[60vh] md:min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div id="hero-slideshow" class="absolute inset-0 z-0">
             <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100"
-                 style="background-image: url('slide1.jpg');">
+                 style="background-image: url('https://pink45-lgtm.github.io/nakalasaudi/slide1.jpg');">
                  <img src="https://placehold.co/1920x1080/cccccc/ffffff?text=Loading+Image+1" alt="Moving truck and boxes" class="w-full h-full object-cover opacity-0" onerror="this.style.opacity='100'">
             </div>
             <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0"
@@ -157,84 +169,69 @@
                  style="background-image: url('https://cdn.prod.website-files.com/58e984c0a0e2f91e7c795e7a/6560ba3ddfe38e854597bfb0_full%20service%20movers.jpg');">
                  <img src="https://placehold.co/1920x1080/cccccc/ffffff?text=Loading+Image+4" alt="Full service movers team" class="w-full h-full object-cover opacity-0" onerror="this.style.opacity='100'">
             </div>
+	    <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0"
+                 style="background-image: url('https://pink45-lgtm.github.io/nakalasaudi/slide1.jpg');">
+                 <img src="https://placehold.co/1920x1080/cccccc/ffffff?text=Loading+Image+5" alt="Full service movers team" class="w-full h-full object-cover opacity-0" onerror="this.style.opacity='100'">
+            </div>
         </div>
         <div id="hero-content" class="relative z-10 container mx-auto px-6 py-12 text-center bg-black/50 rounded-lg max-w-4xl">
-             <h1 class="text-4xl md:text-5xl font-bold mb-4" data-translate-key="hero_title">muasasat sultan</h1>
-            <p class="text-lg md:text-xl mb-8 text-gray-200" data-translate-key="hero_subtitle">Your trusted partner for hassle-free home and office relocation in Riyadh.</p>
-            <a href="#contact" class="bg-white text-blue-700 font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-gray-100 transition duration-300" data-translate-key="hero_cta">Get a Free Quote</a>
+             <h1 class="text-4xl md:text-5xl font-bold mb-4" data-translate-key="hero_title">Muasasat Sultan</h1>
+             <p class="text-lg md:text-xl mb-8 text-gray-200" data-translate-key="hero_subtitle">Your trusted partner for hassle-free furniture moving, dismantling & assembly in Riyadh.</p>
+             <a href="tel:+966555206799" class="bg-white text-blue-700 font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-gray-100 transition duration-300" data-translate-key="hero_cta">Get a Free Quote</a>
         </div>
     </section>
 
     <section id="about" class="py-16 bg-white">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-6" data-translate-key="about_title">About Alriyadh Movers</h2>
-            <p class="max-w-3xl mx-auto text-center text-gray-600 mb-12" data-translate-key="about_text">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-6" data-translate-key="about_title">About Our Moving Service</h2>
+             <p class="max-w-3xl mx-auto text-center text-gray-600 mb-12" data-translate-key="about_text">
                 We are a dedicated team of professional movers based in Riyadh, committed to providing efficient, safe, and affordable relocation services. Whether you're moving across the street or across the city, we handle your belongings with the utmost care, ensuring a stress-free transition to your new home or office. Our experience and attention to detail make us the preferred choice for moving services.
             </p>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
                 <div class="text-center">
                     <a href="https://www.mrmovers.pk/services/house-movers.htm" target="_blank" rel="noopener noreferrer">
-                        <img src="https://www.pakmovers.com/images/icon-2.png"
-                             alt="Home Movers Icon"
-                             class="about-service-icon"
-                             loading="lazy"
-                             onerror="this.onerror=null; this.src='https://placehold.co/64x64/e0e0e0/757575?text=Icon';">
-                    </a>
+                        <img src="https://www.pakmovers.com/images/icon-2.png" alt="Home Movers Icon" class="about-service-icon" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/64x64/e0e0e0/757575?text=Icon';">
+                     </a>
                     <h3 class="text-xl font-semibold text-blue-700 mb-2">
                         <a href="https://www.mrmovers.pk/services/house-movers.htm" target="_blank" rel="noopener noreferrer" data-translate-key="about_service_home_title">Home Movers</a>
                     </h3>
-                    <p class="text-gray-600" data-translate-key="about_service_home_desc">We can pack up all home items without any damage and will shift it to new place as per your convenience.</p>
+                     <p class="text-gray-600" data-translate-key="about_service_home_desc">We can pack up all home items without any damage and will shift it to new place as per your convenience.</p>
                 </div>
-
                 <div class="text-center">
                      <a href="https://www.mrmovers.pk/services/office-movers.htm" target="_blank" rel="noopener noreferrer">
-                        <img src="https://www.pakmovers.com/images/icon-3.png"
-                             alt="Office Movers Icon"
-                             class="about-service-icon"
-                             loading="lazy"
-                             onerror="this.onerror=null; this.src='https://placehold.co/64x64/e0e0e0/757575?text=Icon';">
+                         <img src="https://www.pakmovers.com/images/icon-3.png" alt="Office Movers Icon" class="about-service-icon" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/64x64/e0e0e0/757575?text=Icon';">
                     </a>
                     <h3 class="text-xl font-semibold text-blue-700 mb-2">
                         <a href="https://www.mrmovers.pk/services/office-movers.htm" target="_blank" rel="noopener noreferrer" data-translate-key="about_service_office_title">Office Movers</a>
                     </h3>
-                    <p class="text-gray-600" data-translate-key="about_service_office_desc">Mr Movers can fix all office furniture, gadgets, files and other machines safely and move to new place in safe vehicles.</p>
+                     <p class="text-gray-600" data-translate-key="about_service_office_desc">Mr Movers can fix all office furniture, gadgets, files and other machines safely and move to new place in safe vehicles.</p>
                 </div>
-
                 <div class="text-center">
-                     <img src="https://www.pakmovers.com/images/icon-1-1.png"
-                         alt="Furniture Movers Icon"
-                         class="about-service-icon"
-                         loading="lazy"
-                         onerror="this.onerror=null; this.src='https://placehold.co/64x64/e0e0e0/757575?text=Icon';">
-                    <h3 class="text-xl font-semibold text-blue-700 mb-2" data-translate-key="about_service_furniture_title">
-                        Furniture Movers </h3>
-                    <p class="text-gray-600" data-translate-key="about_service_furniture_desc">Call us and get earliest and best furniture packing and moving services in whatever part of Lahore you live in!</p>
+                    <img src="https://www.pakmovers.com/images/icon-1-1.png" alt="Furniture Movers Icon" class="about-service-icon" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/64x64/e0e0e0/757575?text=Icon';">
+                    <h3 class="text-xl font-semibold text-blue-700 mb-2" data-translate-key="about_service_furniture_title">Furniture Movers</h3>
+                    <p class="text-gray-600" data-translate-key="about_service_furniture_desc">Call us and get earliest and best furniture packing and moving services in whatever part of Riyad you live in!</p>
                 </div>
-
-                <div class="text-center">
+                 <div class="text-center">
                      <a href="https://www.mrmovers.pk/services/apartment-movers.htm" target="_blank" rel="noopener noreferrer">
-                        <img src="https://www.pakmovers.com/images/icon-2.png"
-                             alt="Packers and Movers Icon"
-                             class="about-service-icon"
-                             loading="lazy"
-                             onerror="this.onerror=null; this.src='https://placehold.co/64x64/e0e0e0/757575?text=Icon';"> </a>
+                        <img src="https://www.pakmovers.com/images/icon-2.png" alt="Packers and Movers Icon" class="about-service-icon" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/64x64/e0e0e0/757575?text=Icon';">
+                    </a>
                     <h3 class="text-xl font-semibold text-blue-700 mb-2">
                         <a href="https://www.mrmovers.pk/services/apartment-movers.htm" target="_blank" rel="noopener noreferrer" data-translate-key="about_service_packers_title">Packers and Movers</a>
                     </h3>
-                    <p class="text-gray-600" data-translate-key="about_service_packers_desc">We will pack your all luggage properly in boxes. Our professional team timely packing and moving vans to transfer all stuff to new place.</p>
+                     <p class="text-gray-600" data-translate-key="about_service_packers_desc">We will pack your all luggage properly in boxes. Our professional team timely packing and moving vans to transfer all stuff to new place.</p>
                 </div>
             </div>
-            </div>
+        </div>
     </section>
 
     <section id="services" class="py-16 bg-gray-100">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12" data-translate-key="services_title">Our Services</h2>
+           <h2 class="text-3xl font-bold text-center text-gray-800 mb-12" data-translate-key="services_title">Our Services</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                  <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
                     <h3 class="text-xl font-semibold text-blue-700 mb-3" data-translate-key="service1_title">Home Relocation</h3>
-                    <p class="text-gray-600" data-translate-key="service1_desc">Complete packing, loading, transportation, unloading, and unpacking services for your household items. We ensure your furniture and belongings arrive safely.</p>
+                 <p class="text-gray-600" data-translate-key="service1_desc">Complete packing, loading, transportation, unloading, and unpacking services for your household items. We ensure your furniture and belongings arrive safely.</p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
                     <h3 class="text-xl font-semibold text-blue-700 mb-3" data-translate-key="service2_title">Office Moving</h3>
@@ -246,72 +243,119 @@
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
                     <h3 class="text-xl font-semibold text-blue-700 mb-3" data-translate-key="service4_title">Furniture Assembly/Disassembly</h3>
-                    <p class="text-gray-600" data-translate-key="service4_desc">We can disassemble large furniture items before the move and reassemble them correctly in your new home or office.</p>
+                     <p class="text-gray-600" data-translate-key="service4_desc">We can disassemble large furniture items before the move and reassemble them correctly in your new home or office.</p>
                 </div>
                  <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
                     <h3 class="text-xl font-semibold text-blue-700 mb-3" data-translate-key="service5_title">Storage Solutions</h3>
-                    <p class="text-gray-600" data-translate-key="service5_desc">Need temporary storage? We offer secure and climate-controlled storage options for short-term or long-term needs.</p>
+                     <p class="text-gray-600" data-translate-key="service5_desc">Need temporary storage? We offer secure and climate-controlled storage options for short-term or long-term needs.</p>
                 </div>
                  <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
                     <h3 class="text-xl font-semibold text-blue-700 mb-3" data-translate-key="service6_title">Local Moves</h3>
                     <p class="text-gray-600" data-translate-key="service6_desc">Specializing in moves within Riyadh and surrounding areas. Fast, efficient, and careful handling guaranteed for local relocations.</p>
                 </div>
-            </div>
+                 </div>
         </div>
     </section>
 
-    <section id="contact" class="py-16 bg-white">
+    <section id="protection-showcase" class="py-16 bg-white">
         <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12" data-translate-key="protection_title">How We Protect Your Belongings</h2>
+             <div class="relative max-w-4xl mx-auto">
+                <div id="protection-carousel" class="carousel-container overflow-x-auto hide-scrollbar flex rounded-lg shadow-lg">
+                    <div id="protection-slides" class="flex transition-transform duration-500 ease-in-out">
+                        <div class="carousel-slide min-w-full">
+                             <img src="https://www.nestbedding.com/cdn/shop/articles/woman-posing-with-her-new-headboard-3616687_5322x.jpg?v=1585697935"
+                                 alt="Headboard wrapped for protection" class="w-full h-80 md:h-96 object-cover" loading="lazy"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/1200x600/cccccc/ffffff?text=Image+1+Error';">
+                        </div>
+                        <div class="carousel-slide min-w-full">
+                            <img src="https://standardtextilehome.com/cdn/shop/articles/Circa_blog-622920_1024x1024.jpg?v=1617736755"
+                                 alt="Bedding being prepared for moving" class="w-full h-80 md:h-96 object-cover" loading="lazy"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/1200x600/cccccc/ffffff?text=Image+2+Error';">
+                        </div>
+                        <div class="carousel-slide min-w-full">
+                            <img src="https://i.ytimg.com/vi/qZJ6lYbfVKo/maxresdefault.jpg"
+                                 alt="Furniture wrapped in protective plastic" class="w-full h-80 md:h-96 object-cover" loading="lazy"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/1200x600/cccccc/ffffff?text=Image+3+Error';">
+                        </div>
+                        <div class="carousel-slide min-w-full">
+                            <img src="https://moversonduty.com/wp-content/uploads/2018/03/14691030_329663167389231_4925320533324788873_n.jpg"
+                                 alt="Movers wrapping furniture carefully" class="w-full h-80 md:h-96 object-cover" loading="lazy"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/1200x600/cccccc/ffffff?text=Image+4+Error';">
+                        </div>
+                        <div class="carousel-slide min-w-full">
+                            <img src="https://images.airtasker.com/v7/https://airtasker-seo-assets-prod.s3.amazonaws.com/en_AU/1682055522366-wrapping-a-couch.jpg?gravity=smart&w=1920&h=1080"
+                                 alt="Couch being wrapped in bubble wrap" class="w-full h-80 md:h-96 object-cover" loading="lazy"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/1200x600/cccccc/ffffff?text=Image+5+Error';">
+                        </div>
+                    </div>
+                </div>
+
+                <button id="prevBtnProtection" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 focus:outline-none ml-2 md:ml-4">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                 <button id="nextBtnProtection" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 focus:outline-none mr-2 md:mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                 </button>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="py-16 bg-gray-100">
+         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-12" data-translate-key="contact_title">Get in Touch</h2>
             <div class="max-w-2xl mx-auto bg-gray-50 p-8 rounded-lg shadow-md">
-                <p class="text-center text-gray-600 mb-6" data-translate-key="contact_subtitle">Fill out the form below for a free quote or inquiry. We'll get back to you as soon as possible.</p>
+                 <p class="text-center text-gray-600 mb-6" data-translate-key="contact_subtitle">Fill out the form below for a free quote or inquiry. We'll get back to you as soon as possible.</p>
                 <form action="#" method="POST">
                     <div class="mb-4">
                         <label for="name" class="block text-gray-700 font-medium mb-2 text-left" data-translate-key="form_name_label">Name</label>
-                        <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" data-translate-key="form_name_placeholder" placeholder="Your Name">
+                       <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" data-translate-key="form_name_placeholder" placeholder="Your Name">
                     </div>
                     <div class="mb-4">
                         <label for="email" class="block text-gray-700 font-medium mb-2 text-left" data-translate-key="form_email_label">Email</label>
-                        <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" data-translate-key="form_email_placeholder" placeholder="your.email@example.com">
+                         <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" data-translate-key="form_email_placeholder" placeholder="your.email@example.com">
                     </div>
                     <div class="mb-4">
                         <label for="phone" class="block text-gray-700 font-medium mb-2 text-left" data-translate-key="form_phone_label">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" data-translate-key="form_phone_placeholder" placeholder="+966 XXX XXXXXXX">
+                        <input type="tel" id="phone" name="phone" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" data-translate-key="form_phone_placeholder" placeholder="+966555206799">
                     </div>
                     <div class="mb-4">
-                        <label for="moving_from" class="block text-gray-700 font-medium mb-2 text-left" data-translate-key="form_from_label">Moving From (Address/Area)</label>
+                         <label for="moving_from" class="block text-gray-700 font-medium mb-2 text-left" data-translate-key="form_from_label">Moving From (Address/Area)</label>
                         <input type="text" id="moving_from" name="moving_from" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" data-translate-key="form_from_placeholder" placeholder="Origin Address">
                     </div>
                     <div class="mb-4">
-                        <label for="moving_to" class="block text-gray-700 font-medium mb-2 text-left" data-translate-key="form_to_label">Moving To (Address/Area)</label>
+                         <label for="moving_to" class="block text-gray-700 font-medium mb-2 text-left" data-translate-key="form_to_label">Moving To (Address/Area)</label>
                         <input type="text" id="moving_to" name="moving_to" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" data-translate-key="form_to_placeholder" placeholder="Destination Address">
                     </div>
-                    <div class="mb-6">
+                     <div class="mb-6">
                         <label for="message" class="block text-gray-700 font-medium mb-2 text-left" data-translate-key="form_message_label">Message / Details</label>
                         <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" data-translate-key="form_message_placeholder" placeholder="Describe your moving needs..."></textarea>
-                    </div>
+                     </div>
                     <div class="text-center">
                         <button type="submit" class="bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-blue-800 transition duration-300" data-translate-key="form_submit_button">Send Message</button>
                     </div>
                 </form>
-            </div>
+             </div>
              <div class="text-center mt-12 text-gray-600">
                 <p data-translate-key="contact_direct_intro">You can also reach us directly:</p>
-                <p><strong data-translate-key="contact_phone_label">Phone:</strong> <a href="tel:+966XXXXXXXXX" class="text-blue-600 hover:underline">+966 XXX XXXXXXX</a> <span data-translate-key="contact_phone_replace">(Replace with actual number)</span></p>
-                <p><strong data-translate-key="contact_email_label">Email:</strong> <a href="mailto:info@alriyadhmovers.com" class="text-blue-600 hover:underline">info@alriyadhmovers.com</a> <span data-translate-key="contact_email_replace">(Replace with actual email)</span></p>
-                 <p><strong data-translate-key="contact_address_label">Address:</strong> <span data-translate-key="contact_address_value">Your Company Address, Riyadh, Saudi Arabia</span> <span data-translate-key="contact_address_replace">(Replace with actual address)</span></p>
+                <p><strong data-translate-key="contact_phone_label">Phone:</strong> <a href="tel:+966555206799" class="text-blue-600 hover:underline">+966 555 206799</a> </p>
+                <p><strong data-translate-key="contact_email_label">Email:</strong> <a href="mailto:info@alriyadhmovers.com" class="text-blue-600 hover:underline">info@alriyadhmovers.com</a> </p>
+                 <p><strong data-translate-key="contact_address_label">Address:</strong> <span data-translate-key="contact_address_value">Your Company Address, Riyadh, Saudi Arabia</span>		 </p>
             </div>
         </div>
     </section>
 
     <footer class="bg-gray-800 text-gray-300 py-8">
         <div class="container mx-auto px-6 text-center">
-            <p data-translate-key="footer_copyright">&copy; 2025 Alriyadh Movers. All Rights Reserved.</p>
+             <p data-translate-key="footer_copyright">&copy; 2025 Home Shifting Service. All Rights Reserved.</p>
             </div>
     </footer>
 
-    <a id="whatsapp-link" href="https://wa.me/+966XXXXXXXXX?text=Hello%20Alriyadh%20Movers,%20I%20would%20like%20to%20inquire%20about%20your%20moving%20services."
-       target="_blank"
+    <a id="whatsapp-link" href="https://wa.me/+966555206799?text=Hello%20Home%20Shifting%20Service,%20I%20would%20like%20to%20inquire%20about%20your%20moving%20services."
+        target="_blank"
        rel="noopener noreferrer"
        class="whatsapp-button">
        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
@@ -324,25 +368,30 @@
         // --- Translations ---
         const translations = {
             en: {
-                company_name: "Alriyadh Movers",
+                // CHANGE: Updated company name translation
+                company_name: "Home Shifting Service",
                 nav_home: "Home",
-                nav_about: "About Us",
+                 nav_about: "About Us",
                 nav_services: "Services",
                 nav_contact: "Contact",
-                hero_title: "Move Smoothly with Alriyadh Movers",
-                hero_subtitle: "Your trusted partner for hassle-free home and office relocation in Riyadh.",
-                hero_cta: "Get a Free Quote",
-                about_title: "About Alriyadh Movers",
+                 // CHANGE: Updated hero title translation
+                 hero_title: "Muasasat Sultan",
+                // CHANGE: Updated hero subtitle translation
+                hero_subtitle: "Your trusted partner for hassle-free furniture moving, dismantling & assembly in Riyadh.",
+                 hero_cta: "Get a Free Quote",
+                 // CHANGE: Updated about title translation
+                 about_title: "About Our Moving Service",
                 about_text: "We are a dedicated team of professional movers based in Riyadh, committed to providing efficient, safe, and affordable relocation services. Whether you're moving across the street or across the city, we handle your belongings with the utmost care, ensuring a stress-free transition to your new home or office. Our experience and attention to detail make us the preferred choice for moving services.",
                 about_service_home_title: "Home Movers",
                 about_service_home_desc: "We can pack up all home items without any damage and will shift it to new place as per your convenience.",
                 about_service_office_title: "Office Movers",
-                about_service_office_desc: "Mr Movers can fix all office furniture, gadgets, files and other machines safely and move to new place in safe vehicles.",
-                about_service_furniture_title: "Furniture Movers", // Title still exists for translation
-                about_service_furniture_desc: "Call us and get earliest and best furniture packing and moving services in whatever part of Lahore you live in!", // REMEMBER TO UPDATE "Lahore"
-                about_service_packers_title: "Packers and Movers", // Title still exists for translation
-                about_service_packers_desc: "We will pack your all luggage properly in boxes. Our professional team timely packing and moving vans to transfer all stuff to new place.",
+                  about_service_office_desc: "Mr Movers can fix all office furniture, gadgets, files and other machines safely and move to new place in safe vehicles.",
+                about_service_furniture_title: "Furniture Movers",
+                about_service_furniture_desc: "Call us and get earliest and best furniture packing and moving services in whatever part of Riyad you live in!",
+                about_service_packers_title: "Packers and Movers",
+                 about_service_packers_desc: "We will pack your all luggage properly in boxes. Our professional team timely packing and moving vans to transfer all stuff to new place.",
                 services_title: "Our Services",
+                // ... other service keys ...
                 service1_title: "Home Relocation",
                 service1_desc: "Complete packing, loading, transportation, unloading, and unpacking services for your household items. We ensure your furniture and belongings arrive safely.",
                 service2_title: "Office Moving",
@@ -352,9 +401,11 @@
                 service4_title: "Furniture Assembly/Disassembly",
                 service4_desc: "We can disassemble large furniture items before the move and reassemble them correctly in your new home or office.",
                 service5_title: "Storage Solutions",
-                service5_desc: "Need temporary storage? We offer secure and climate-controlled storage options for short-term or long-term needs.",
+                 service5_desc: "Need temporary storage? We offer secure and climate-controlled storage options for short-term or long-term needs.",
                 service6_title: "Local Moves",
                 service6_desc: "Specializing in moves within Riyadh and surrounding areas. Fast, efficient, and careful handling guaranteed for local relocations.",
+                // New key for protection section title
+                protection_title: "How We Protect Your Belongings",
                 contact_title: "Get in Touch",
                 contact_subtitle: "Fill out the form below for a free quote or inquiry. We'll get back to you as soon as possible.",
                 form_name_label: "Name",
@@ -362,91 +413,109 @@
                 form_email_label: "Email",
                 form_email_placeholder: "your.email@example.com",
                 form_phone_label: "Phone Number",
-                form_phone_placeholder: "+966 XXX XXXXXXX",
+                // CHANGE: Ensured correct phone number format in translation
+                 form_phone_placeholder: "+966555206799",
                 form_from_label: "Moving From (Address/Area)",
                 form_from_placeholder: "Origin Address",
                 form_to_label: "Moving To (Address/Area)",
                 form_to_placeholder: "Destination Address",
-                form_message_label: "Message / Details",
+                 form_message_label: "Message / Details",
                 form_message_placeholder: "Describe your moving needs...",
                 form_submit_button: "Send Message",
                 contact_direct_intro: "You can also reach us directly:",
                 contact_phone_label: "Phone:",
-                contact_phone_replace: "(Replace with actual number)",
+                // CHANGE: Updated phone number translation placeholder text (though link is correct)
+                contact_phone_replace: "+966 555 206799", // Represents the actual number shown
                 contact_email_label: "Email:",
-                contact_email_replace: "(Replace with actual email)",
+                // NOTE: Update this email placeholder if needed
+                contact_email_replace: "info@yourcompany.com",
                 contact_address_label: "Address:",
+                 // NOTE: Update this address placeholder
                 contact_address_value: "Your Company Address, Riyadh, Saudi Arabia",
-                contact_address_replace: "(Replace with actual address)",
-                footer_copyright: "&copy; 2025 Alriyadh Movers. All Rights Reserved.",
+                contact_address_replace: "Your Company Address, Riyadh, Saudi Arabia",
+                // CHANGE: Updated copyright company name translation
+                footer_copyright: "&copy; 2025 Home Shifting Service. All Rights Reserved.",
                 whatsapp_chat: "Chat on WhatsApp",
-                whatsapp_link_text: "Hello Alriyadh Movers, I would like to inquire about your moving services."
+                // CHANGE: Updated WhatsApp link text translation
+                whatsapp_link_text: "Hello Home Shifting Service, I would like to inquire about your moving services."
             },
             ar: {
-                // --- !!! REPLACE THESE PLACEHOLDERS WITH ACTUAL ARABIC TRANSLATIONS !!! ---
-                company_name: "الرياض موفرز",
+                // --- !!! Note: Arabic translations below are PARTIAL and might need review/updates !!! ---
+                // CHANGE: Updated company name translation (Arabic)
+                company_name: "خدمة نقل الأثاث", // Literal translation, adjust if needed
                 nav_home: "الرئيسية",
                 nav_about: "معلومات عنا",
                 nav_services: "خدماتنا",
                 nav_contact: "اتصل بنا",
-                hero_title: "[موسسة سلطان]",
-                hero_subtitle: "[شريكك الموثوق للنقل المنزلي والمكتبي بدون متاعب في الرياض.]",
-                hero_cta: "[احصل على عرض سعر مجاني]",
-                about_title: "[عن الرياض موفرز]",
-                about_text: "[نحن فريق متخصص من المحترفين في مجال النقل بالرياض، ملتزمون بتقديم خدمات نقل فعالة وآمنة وبأسعار معقولة. سواء كنت تنتقل عبر الشارع أو عبر المدينة، فإننا نتعامل مع ممتلكاتك بعناية فائقة، مما يضمن انتقالًا خاليًا من التوتر إلى منزلك أو مكتبك الجديد. خبرتنا واهتمامنا بالتفاصيل يجعلاننا الخيار المفضل لخدمات النقل.]",
-                about_service_home_title: "[نقل المنازل]",
-                about_service_home_desc: "[يمكننا حزم جميع الأدوات المنزلية دون أي ضرر ونقلها إلى مكان جديد حسب راحتك.]",
-                about_service_office_title: "[نقل المكاتب]",
-                about_service_office_desc: "[يمكن لمستر موفرز إصلاح جميع أثاث المكاتب والأدوات والملفات والآلات الأخرى بأمان ونقلها إلى مكان جديد في مركبات آمنة.]",
-                about_service_furniture_title: "[نقل الأثاث]", // Title still exists for translation
-                about_service_furniture_desc: "[اتصل بنا واحصل على أسرع وأفضل خدمات تغليف ونقل الأثاث في أي جزء من لاهور تعيش فيه!]", // REMEMBER TO UPDATE "Lahore"
-                about_service_packers_title: "[التعبئة والنقل]", // Title still exists for translation
-                about_service_packers_desc: "[سنقوم بتعبئة جميع أمتعتك بشكل صحيح في صناديق. فريقنا المحترف يقوم بالتعبئة في الوقت المناسب وشاحنات النقل لنقل جميع الأشياء إلى مكان جديد.]",
-                services_title: "[خدماتنا]",
-                service1_title: "[نقل المنازل]",
-                service1_desc: "[خدمات تغليف وتحميل ونقل وتفريغ وإعادة ترتيب كاملة لمقتنيات منزلك. نضمن وصول أثاثك وممتلكاتك بأمان.]",
-                service2_title: "[نقل المكاتب]",
-                service2_desc: "[قلل وقت التوقف عن العمل مع خدمات نقل المكاتب الفعالة لدينا. نتعامل مع الأثاث والمعدات والمستندات بأمان واحترافية.]",
-                service3_title: "[التغليف وفك التغليف]",
-                service3_desc: "[ليس لديك وقت للتغليف؟ دع خبرائنا يتولون الأمر. نستخدم مواد وتقنيات عالية الجودة لحماية مقتنياتك الثمينة أثناء النقل.]",
-                service4_title: "[فك وتركيب الأثاث]",
-                service4_desc: "[يمكننا فك قطع الأثاث الكبيرة قبل النقل وإعادة تجميعها بشكل صحيح في منزلك أو مكتبك الجديد.]",
-                service5_title: "[حلول التخزين]",
-                service5_desc: "[هل تحتاج إلى تخزين مؤقت؟ نقدم خيارات تخزين آمنة ومكيفة للاحتياجات قصيرة أو طويلة الأجل.]",
-                service6_title: "[النقل المحلي]",
-                service6_desc: "[متخصصون في عمليات النقل داخل الرياض والمناطق المحيطة بها. نضمن التعامل السريع والفعال والحذر لعمليات النقل المحلية.]",
-                contact_title: "[تواصل معنا]",
-                contact_subtitle: "[املأ النموذج أدناه للحصول على عرض سعر مجاني أو للاستفسار. سنعود إليك في أقرب وقت ممكن.]",
-                form_name_label: "[الاسم]",
-                form_name_placeholder: "[اسمك]",
-                form_email_label: "[البريد الإلكتروني]",
-                form_email_placeholder: "[your.email@example.com]",
-                form_phone_label: "[رقم الهاتف]",
-                form_phone_placeholder: "[+966 XXX XXXXXXX]",
-                form_from_label: "[النقل من (العنوان/المنطقة)]",
-                form_from_placeholder: "[عنوان الأصل]",
-                form_to_label: "[النقل إلى (العنوان/المنطقة)]",
-                form_to_placeholder: "[عنوان الوجهة]",
-                form_message_label: "[الرسالة / التفاصيل]",
-                form_message_placeholder: "[صف احتياجات النقل الخاصة بك...]",
-                form_submit_button: "[إرسال الرسالة]",
-                contact_direct_intro: "[يمكنك أيضًا التواصل معنا مباشرة:]",
-                contact_phone_label: "[الهاتف:]",
-                contact_phone_replace: "[استبدل بالرقم الفعلي]",
-                contact_email_label: "[البريد الإلكتروني:]",
-                contact_email_replace: "[استبدل بالبريد الإلكتروني الفعلي]",
-                contact_address_label: "[العنوان:]",
-                contact_address_value: "[عنوان شركتك، الرياض، المملكة العربية السعودية]",
-                contact_address_replace: "[استبدل بالعنوان الفعلي]",
-                footer_copyright: "[© 2025 الرياض موفرز. جميع الحقوق محفوظة.]",
-                whatsapp_chat: "[الدردشة على الواتساب]",
-                whatsapp_link_text: "[مرحبًا الرياض موفرز، أود الاستفسار عن خدمات النقل الخاصة بكم.]"
+                // CHANGE: Updated hero title translation (Arabic)
+                hero_title: "موسسة سلطان",
+                // CHANGE: Updated hero subtitle translation (Arabic)
+                hero_subtitle: "شريكك الموثوق لنقل وفك وتركيب الأثاث بدون متاعب في الرياض.",
+                hero_cta: "احصل على عرض سعر مجاني",
+                 // CHANGE: Updated about title translation (Arabic)
+                 about_title: "عن خدمة النقل لدينا",
+                 about_text: "نحن فريق متخصص من المحترفين في مجال النقل بالرياض، ملتزمون بتقديم خدمات نقل فعالة وآمنة وبأسعار معقولة. سواء كنت تنتقل عبر الشارع أو عبر المدينة، فإننا نتعامل مع ممتلكاتك بعناية فائقة، مما يضمن انتقالًا خاليًا من التوتر إلى منزلك أو مكتبك الجديد. خبرتنا واهتمامنا بالتفاصيل يجعلاننا الخيار المفضل لخدمات النقل.",
+                about_service_home_title: "نقل المنازل",
+                about_service_home_desc: "يمكننا حزم جميع الأدوات المنزلية دون أي ضرر ونقلها إلى مكان جديد حسب راحتك.",
+                about_service_office_title: "نقل المكاتب",
+                about_service_office_desc: "يمكن لمستر موفرز إصلاح جميع أثاث المكاتب والأدوات والملفات والآلات الأخرى بأمان ونقلها إلى مكان جديد في مركبات آمنة.",
+                about_service_furniture_title: "نقل الأثاث",
+                about_service_furniture_desc: "تواصل معنا واحصل على أسرع وأفضل خدمات نقل وتغليف الأثاث في أي منطقة من مناطق الرياض التي تسكن فيها!",
+                about_service_packers_title: "التعبئة والنقل",
+                about_service_packers_desc: "سنقوم بتعبئة جميع أمتعتك بشكل صحيح في صناديق. فريقنا المحترف يقوم بالتعبئة في الوقت المناسب وشاحنات النقل لنقل جميع الأشياء إلى مكان جديد.",
+                services_title: "خدماتنا",
+                // ... other service keys ...
+                service1_title: "نقل المنازل",
+                service1_desc: "خدمات تغليف وتحميل ونقل وتفريغ وإعادة ترتيب كاملة لمقتنيات منزلك. نضمن وصول أثاثك وممتلكاتك بأمان.",
+                service2_title: "نقل المكاتب",
+                service2_desc: "قلل وقت التوقف عن العمل مع خدمات نقل المكاتب الفعالة لدينا. نتعامل مع الأثاث والمعدات والمستندات بأمان واحترافية.",
+                service3_title: "التغليف وفك التغليف",
+                service3_desc: "ليس لديك وقت للتغليف؟ دع خبرائنا يتولون الأمر. نستخدم مواد وتقنيات عالية الجودة لحماية مقتنياتك الثمينة أثناء النقل.",
+                service4_title: "فك وتركيب الأثاث",
+                service4_desc: "يمكننا فك قطع الأثاث الكبيرة قبل النقل وإعادة تجميعها بشكل صحيح في منزلك أو مكتبك الجديد.",
+                service5_title: "حلول التخزين",
+                service5_desc: "هل تحتاج إلى تخزين مؤقت؟ نقدم خيارات تخزين آمنة ومكيفة للاحتياجات قصيرة أو طويلة الأجل.",
+                service6_title: "النقل المحلي",
+                service6_desc: "متخصصون في عمليات النقل داخل الرياض والمناطق المحيطة بها. نضمن التعامل السريع والفعال والحذر لعمليات النقل المحلية.",
+                protection_title: "كيف نحمي ممتلكاتك",
+                contact_title: "تواصل معنا",
+                contact_subtitle: "املأ النموذج أدناه للحصول على عرض سعر مجاني أو للاستفسار. سنعود إليك في أقرب وقت ممكن.",
+                form_name_label: "الاسم",
+                form_name_placeholder: "اسمك",
+                form_email_label: "البريد الإلكتروني",
+                form_email_placeholder: "your.email@example.com",
+                form_phone_label: "رقم الهاتف",
+                // CHANGE: Ensured correct phone number format in translation placeholder
+                 form_phone_placeholder: "+966555206799",
+                form_from_label: "النقل من (العنوان/المنطقة)",
+                form_from_placeholder: "عنوان الأصل",
+                form_to_label: "النقل إلى (العنوان/المنطقة)",
+                form_to_placeholder: "عنوان الوجهة",
+                 form_message_label: "الرسالة / التفاصيل",
+                form_message_placeholder: "صف احتياجات النقل الخاصة بك...",
+                form_submit_button: "إرسال الرسالة",
+                contact_direct_intro: "يمكنك أيضًا التواصل معنا مباشرة:",
+                contact_phone_label: "الهاتف:",
+                 // CHANGE: Updated phone number translation placeholder text (Arabic)
+                contact_phone_replace: "+966 555 206799", // Represents the actual number shown
+                contact_email_label: "البريد الإلكتروني:",
+                 // NOTE: Update this email placeholder if needed
+                contact_email_replace: "info@yourcompany.com", // Replace with actual email
+                contact_address_label: "العنوان:",
+                 // NOTE: Update this address placeholder
+                 contact_address_value: "عنوان شركتك، الرياض، المملكة العربية السعودية",
+                 contact_address_replace: "عنوان شركتك، الرياض، المملكة العربية السعودية",
+                // CHANGE: Updated copyright company name translation (Arabic)
+                footer_copyright: "© 2025 خدمة نقل الأثاث. جميع الحقوق محفوظة.",
+                whatsapp_chat: "الدردشة على الواتساب",
+                 // CHANGE: Updated WhatsApp link text translation (Arabic)
+                 whatsapp_link_text: "مرحبًا خدمة نقل الأثاث، أود الاستفسار عن خدمات النقل الخاصة بكم."
             }
         };
 
         // --- Language Switching Logic ---
         const supportedLangs = ['en', 'ar'];
-        let currentLang = 'ar'; // Default language set to Arabic
+         let currentLang = 'ar'; // Default language set to Arabic
 
         function setLanguage(lang) {
             if (!supportedLangs.includes(lang)) {
@@ -455,7 +524,7 @@
             }
 
             currentLang = lang;
-            const langTranslations = translations[lang] || translations.en; // Fallback to English
+             const langTranslations = translations[lang] || translations.en; // Fallback to English
 
             // Update HTML lang and dir attributes
             document.documentElement.lang = lang;
@@ -463,36 +532,41 @@
 
             // Update text content and attributes
             document.querySelectorAll('[data-translate-key]').forEach(element => {
-                const key = element.getAttribute('data-translate-key');
-                const translation = langTranslations[key] || translations.en[key]; // Fallback to English per key
+                 const key = element.getAttribute('data-translate-key');
+                 const translation = langTranslations[key] || translations.en[key]; // Fallback to English per key
 
                 if (translation !== undefined) {
                     if (element.hasAttribute('placeholder')) {
                         element.placeholder = translation;
                     } else if (key === 'footer_copyright') {
-                        element.innerHTML = translation;
+                        element.innerHTML = translation; // Use innerHTML for copyright symbol
+                    } else if (key === 'contact_address_value') {
+                         element.textContent = translation; // Directly update the span for address
+                    } else if (element.tagName === 'A' && element.getAttribute('href')?.startsWith('tel:')) {
+                         // Update link text content, but keep href as is (updated elsewhere if needed)
+                         element.textContent = translation;
+                    } else if (element.tagName === 'A' && element.getAttribute('href')?.startsWith('mailto:')) {
+                         // Update link text content, but keep href as is (updated elsewhere if needed)
+                         element.textContent = translation;
                     } else {
-                         // Update text content for headings, paragraphs, spans, etc.
-                         // Check specifically for the h3 title we modified (Furniture Movers)
-                         if (element.tagName === 'H3' && key === 'about_service_furniture_title') {
-                             element.textContent = translation;
-                         }
-                         // Update link text content if it's inside another element (like the other h3 links)
-                         else if (element.tagName === 'A' && element.parentElement.tagName === 'H3') {
-                             element.textContent = translation;
-                         }
-                         // Update other general text elements
-                         else if (element.tagName !== 'A' && element.tagName !== 'H3') { // Avoid overwriting link/heading text handled above
-                              element.textContent = translation;
-                         }
-                         // Handle remaining H3s (the one for Packers/Movers which still has a link inside)
-                         else if (element.tagName === 'H3' && key !== 'about_service_furniture_title') {
-                             // Find the link inside and update it, if it exists
-                             const linkInside = element.querySelector('a[data-translate-key]');
-                             if (!linkInside) { // If no link inside (like the modified Furniture Movers), update H3 directly
-                                 element.textContent = translation;
+                         // General text update for other elements like H1, H2, P, SPAN, BUTTON etc.
+                         // Avoid overwriting elements that contain other translated elements unless necessary
+                         // Check if the element directly contains the key or if it's a parent container
+                         const childHasKey = element.querySelector('[data-translate-key]');
+                         if (!childHasKey || element.isSameNode(childHasKey)) {
+                             // Only update if it's the target element or doesn't contain other keys
+                             if (element.childNodes.length === 1 && element.childNodes[0].nodeType === Node.TEXT_NODE) {
+                                 element.textContent = translation; // Safest for simple text nodes
+                             } else if (element.tagName === 'BUTTON' || element.tagName === 'H1' || element.tagName === 'H2' || element.tagName === 'H3' || element.tagName === 'P' || element.tagName === 'SPAN') {
+                                 // For common text containers, attempt update if no nested keys detected
+                                 let containsNestedKeys = false;
+                                 element.querySelectorAll('[data-translate-key]').forEach(nested => {
+                                     if (!nested.isSameNode(element)) containsNestedKeys = true;
+                                 });
+                                 if (!containsNestedKeys) {
+                                     element.textContent = translation;
+                                 }
                              }
-                             // Otherwise, the link text is handled by the 'A' tag check
                          }
                     }
                 } else {
@@ -500,16 +574,29 @@
                 }
             });
 
-             // Update WhatsApp link text parameter
+
+            // Update WhatsApp link text parameter AND base URL if needed
             const whatsappLink = document.getElementById('whatsapp-link');
             if (whatsappLink) {
-                const baseWhatsappUrl = whatsappLink.href.split('?')[0];
-                const whatsappTextKey = 'whatsapp_link_text';
-                const encodedText = encodeURIComponent(langTranslations[whatsappTextKey] || translations.en[whatsappTextKey]);
-                whatsappLink.href = `${baseWhatsappUrl}?text=${encodedText}`;
+                 // CHANGE: Ensure base URL uses the correct number
+                 const baseWhatsappUrl = `https://wa.me/+966555206799`; // Use correct number directly
+                 const whatsappTextKey = 'whatsapp_link_text';
+                 const encodedText = encodeURIComponent(langTranslations[whatsappTextKey] || translations.en[whatsappTextKey]);
+                 whatsappLink.href = `${baseWhatsappUrl}?text=${encodedText}`;
+
+                 // Update the text inside the WhatsApp button span
+                 const whatsappSpan = whatsappLink.querySelector('span[data-translate-key="whatsapp_chat"]');
+                 if (whatsappSpan) {
+                     whatsappSpan.textContent = langTranslations['whatsapp_chat'] || translations.en['whatsapp_chat'];
+                 }
             }
 
-            // Update active language button style
+             // Update contact section direct links texts (Phone, Email) if they are separate elements
+             // Example for phone (assuming the link text is directly modifiable or you add a span)
+             const phoneLink = document.querySelector('a[href="tel:+966555206799"]');
+             if(phoneLink) phoneLink.textContent = '+966 555 206799'; // Set the number directly
+
+             // Update active language button style
             document.querySelectorAll('.lang-switcher button').forEach(button => {
                 button.classList.remove('active');
             });
@@ -519,11 +606,12 @@
             }
         }
 
+
         // --- Hero Slideshow Logic ---
         function startHeroSlideshow() {
             const slides = document.querySelectorAll('#hero-slideshow .hero-slide');
             let currentSlideIndex = 0;
-            const slideInterval = 5000; // Time in milliseconds (5 seconds)
+            const slideInterval = 5000; // 5 seconds
 
             if (slides.length > 1) {
                 setInterval(() => {
@@ -531,9 +619,7 @@
                         slides[currentSlideIndex].classList.remove('opacity-100');
                         slides[currentSlideIndex].classList.add('opacity-0');
                     }
-
                     currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-
                      if (slides[currentSlideIndex]) {
                         slides[currentSlideIndex].classList.remove('opacity-0');
                         slides[currentSlideIndex].classList.add('opacity-100');
@@ -542,12 +628,54 @@
             }
         }
 
+        // --- Protection Carousel Logic ---
+        function setupProtectionCarousel() {
+            const slidesContainer = document.getElementById('protection-slides');
+            const prevBtn = document.getElementById('prevBtnProtection');
+            const nextBtn = document.getElementById('nextBtnProtection');
+
+            if (!slidesContainer || !prevBtn || !nextBtn) {
+                console.error("Protection carousel elements not found!");
+                return;
+            }
+
+            const slides = slidesContainer.children; // HTMLCollection of slide divs
+            const totalSlides = slides.length;
+            let currentIndex = 0;
+
+            function goToSlide(index) {
+                if (index < 0) {
+                    index = totalSlides - 1;
+                } else if (index >= totalSlides) {
+                    index = 0;
+                }
+                // Calculate the translation percentage
+                const translateValue = -index * 100;
+                slidesContainer.style.transform = `translateX(${translateValue}%)`;
+                currentIndex = index;
+            }
+
+            prevBtn.addEventListener('click', () => {
+                goToSlide(currentIndex - 1);
+            });
+
+            nextBtn.addEventListener('click', () => {
+                goToSlide(currentIndex + 1);
+            });
+
+             // Initialize
+            goToSlide(0);
+        }
+
+
         // --- Initial Setup ---
         document.addEventListener('DOMContentLoaded', () => {
-            // Set initial language to Arabic
+            // Set initial language to Arabic (as per original code)
             setLanguage('ar');
             // Start the hero slideshow
             startHeroSlideshow();
+            // Setup the protection carousel
+            setupProtectionCarousel();
         });
 
     </script>
